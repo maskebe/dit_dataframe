@@ -61,12 +61,14 @@ class DitSeries:
     def __gt__(self, other: int) -> "DitSeries":
         """Comparaison (supérieur) """
         for key in self.data:
-           self.data[key] > other
+           val = self.data[key] > other
+           new_data = dict(zip(key, val))
            
-        return self.data
+        return new_data
 
     def __getitem__(self, key: "DitSeries") -> "DitSeries":
         """ """
+        return self.data[key]
 
     def __repr__(self) -> str:
         """ Affiche une representation de l'objet DitSeries. """
@@ -122,7 +124,7 @@ if __name__ == "__main__":
     print(ds3)    # <DitSeries: serie {0: 95, 1: 97, 2: 99}>
 
 
-    ds4 = ds3 > 95
+    ds4 = ds > 95
     print(ds4)   # <DitSeries: serie {0: False, 1: True, 2: True}>
 
     df = DitDataFrame(
