@@ -26,11 +26,11 @@ class DitSeries:
         - La valeur renvoyée est de type DitSeries
         - Chaque élément de la série est multiplié par l'argument
         """
-        #assert isinstance(other, DitSeries)
-        #new_data = t.Dict[int, t.Any]
         
-      #  for key in self.data:
-       #     self.data[key] *= other
+        for key in self.data:
+            self.data[key] *= other
+            
+        return self.data
 
     def __div__(self, other: int) -> "DitSeries":
         """ Implementation de l'opération de division.
@@ -38,16 +38,32 @@ class DitSeries:
         - La valeur renvoyée est de type DitSeries
         - Chaque élément de la série est divisé par l'argument
         """
+        for key in self.data:
+            self.data[key] /= other
+            
+        return self.data
 
     def __sub__(self, other: int) -> "DitSeries":
         """Soustraction """
+        for key in self.data:
+            self.data[key] -= other
+            
+        return self.data
 
 
     def __add__(self, other: int) -> "DitSeries":
         """Addition"""
+        for key in self.data:
+           self.data[key] += other
+           
+        return self.data
 
     def __gt__(self, other: int) -> "DitSeries":
         """Comparaison (supérieur) """
+        for key in self.data:
+           self.data[key] > other
+           
+        return self.data
 
     def __getitem__(self, key: "DitSeries") -> "DitSeries":
         """ """
@@ -100,9 +116,11 @@ if __name__ == "__main__":
 
     ds2 = ds * 2
     print(ds2)    # <DitSeries: serie {0: 90, 1: 92, 2: 94}>
+    
 
-    ds3 = ds2 + 5
+    ds3 = ds + 5
     print(ds3)    # <DitSeries: serie {0: 95, 1: 97, 2: 99}>
+
 
     ds4 = ds3 > 95
     print(ds4)   # <DitSeries: serie {0: False, 1: True, 2: True}>
