@@ -88,8 +88,8 @@ class DitDataFrame:
         - self.length, la longueur du DataFrame
         """
         self.d = d
-        for key, val in d:
-            self.series_map = DitSeries(key, val)
+       # for key, val in d:
+        self.series_map = DitSeries(self.d.keys(), self.d[self.d.keys()])
         self.length = len(self.d.keys())
 
 
