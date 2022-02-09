@@ -87,6 +87,10 @@ class DitDataFrame:
         - self.series_map, correspondra à un dictionnaire de type DitSeries
         - self.length, la longueur du DataFrame
         """
+        self.d = d
+        for key, val in d:
+            self.series_map = DitSeries(key, val)
+        self.length = len(self.d.keys())
 
 
     def __getitem__(self, key: str) -> DitSeries:
@@ -124,8 +128,8 @@ if __name__ == "__main__":
     print(ds3)    # <DitSeries: serie {0: 95, 1: 97, 2: 99}>
 
 
-    ds4 = ds > 95
-    print(ds4)   # <DitSeries: serie {0: False, 1: True, 2: True}>
+  #  ds4 = ds > 95
+   # print(ds4)   # <DitSeries: serie {0: False, 1: True, 2: True}>
 
     df = DitDataFrame(
         {
