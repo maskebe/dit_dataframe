@@ -17,6 +17,8 @@ class DitSeries:
         - le contenu de la colonne sous forme de Dictionnaire
         - La clé du Dictionnaire est un entier
         - La valeur du Dictionnaire est de n'importe quel type"""
+        self.name = name
+        self.data = data
 
     def __mul__(self, other: int) -> "DitSeries":
         """ Implementation de l'opération de multiplication.
@@ -24,6 +26,11 @@ class DitSeries:
         - La valeur renvoyée est de type DitSeries
         - Chaque élément de la série est multiplié par l'argument
         """
+        #assert isinstance(other, DitSeries)
+        #new_data = t.Dict[int, t.Any]
+        
+      #  for key in self.data:
+       #     self.data[key] *= other
 
     def __div__(self, other: int) -> "DitSeries":
         """ Implementation de l'opération de division.
